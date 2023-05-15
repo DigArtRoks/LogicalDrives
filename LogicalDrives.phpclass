@@ -331,7 +331,7 @@ class  LogicalDrive 		implements	\ArrayAccess, \Countable, \Iterator
 	        Countable interface implementation.
 	
 	  ==============================================================================================================*/
-	public function  count ( )
+	public function  count ( ) : int
 	   { return ( count ( $this -> PropertyNames ) ) ; }
 	
 	
@@ -351,11 +351,11 @@ class  LogicalDrive 		implements	\ArrayAccess, \Countable, \Iterator
 	    }
 	
 	
-	public function  offsetExists ( $offset )
+	public function  offsetExists ( mixed $offset ) : bool
 	   { return ( $this -> __offset_get ( $offset )  !==  false ) ; }
 		
 	
-	public function  offsetGet ( $offset )
+	public function  offsetGet ( mixed $offset ) : mixed
 	   {
 		$real_offset	=  $this -> __offset_get ( $offset ) ;
 		
@@ -366,11 +366,11 @@ class  LogicalDrive 		implements	\ArrayAccess, \Countable, \Iterator
 	    }
 
 	
-	public function  OffsetSet ( $offset, $value ) 
+	public function  OffsetSet ( mixed $offset, mixed $value ) : void
 	   { throw ( new \Exception ( "Unsupported operation." ) ) ; }
 
 	
-	public function  Offsetunset ( $offset ) 
+	public function  Offsetunset ( mixed $offset ) : void
 	   { throw ( new \Exception ( "Unsupported operation." ) ) ; }
 	
 	
@@ -382,19 +382,19 @@ class  LogicalDrive 		implements	\ArrayAccess, \Countable, \Iterator
 	private	$__iterator_index	=  null ;
 	
 	
-	public function  rewind ( )
+	public function  rewind ( ) : void
 	   { $this -> __iterator_index = 0 ; }
 	
-	public function  valid ( )
+	public function  valid ( ) : bool
 	   { return ( $this -> __iterator_index  >=  0  &&  $this -> __iterator_index  <  count ( $this -> PropertyNames ) ) ; }
 	
-	public function  next ( )
+	public function  next ( ) : void
 	   { $this -> __iterator_index ++ ; }
 	
-	public function  key ( )
+	public function  key ( ) : mixed
 	   { return ( $this -> PropertyNames [ $this -> __iterator_index ] ) ; }
 	
-	public function  current ( )
+	public function  current ( ) : mixed
 	   {
 		$property	=  $this -> PropertyNames [ $this -> __iterator_index ] ;
 		
@@ -583,7 +583,7 @@ class  LogicalDrives  		implements 	\ArrayAccess, \Countable, \IteratorAggregate
 		Countable interface implementation.
 		
 	  ===========================================================================================================*/
-	public function  count ( )
+	public function  count ( ) : int
 	   { return ( count ( $this -> Drives ) ) ; }
 
 	   
@@ -592,7 +592,7 @@ class  LogicalDrives  		implements 	\ArrayAccess, \Countable, \IteratorAggregate
 		IteratorAggregate interface implementation.
 		
 	  ===========================================================================================================*/
-	public function  getIterator ( )
+	public function  getIterator ( ) : Traversable
 	   { return ( new \ArrayIterator ( $this -> Drives ) ) ; }
 	   
 	   
@@ -627,11 +627,11 @@ class  LogicalDrives  		implements 	\ArrayAccess, \Countable, \IteratorAggregate
 		    }
 	    }	
 	   
-	public function  offsetExists ( $offset )
+	public function  offsetExists ( mixed $offset ) : bool
 	   { return ( $this -> __get_offset ( $offset )  !==  false ) ; }
 	   
 	   
-	public function  offsetGet ( $offset )
+	public function  offsetGet ( mixed $offset ) : mixed
 	   {
 		$real_offset 	=  $this -> __get_offset ( $offset ) ;
 		
@@ -641,9 +641,9 @@ class  LogicalDrives  		implements 	\ArrayAccess, \Countable, \IteratorAggregate
 			throw ( new \Exception ( "Invalid offset $offset." ) ) ;
 	    }
 	    
-	public function  offsetSet ( $offset, $value )
+	public function  offsetSet ( mixed $offset, mixed $value ) : void
 	   { throw ( new \Exception ( "Unsupported operation." ) ) ; }
 	   
-	public function  offsetUnset ( $offset )
+	public function  offsetUnset ( mixed $offset ) : void
 	   { throw ( new \Exception ( "Unsupported operation." ) ) ; }
     }			

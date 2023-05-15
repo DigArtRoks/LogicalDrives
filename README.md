@@ -4,6 +4,11 @@ The **LogicalDrives** class is a small utility class that works only on Windows 
 
 It relies on the Windows Management Instrumentation interface (WMI) to retrieve logical drive information.
 
+
+# REQUIREMENTS #
+
+In order to have access to WMI the `php_com_dotnet.dll` extension needs to be enabled inside of `php.ini`.
+
 # DOCUMENTATION #
 
 Documentation about WMI can be found here : [https://msdn.microsoft.com/fr-fr/library/aa394582(v=vs.85).aspx](https://msdn.microsoft.com/fr-fr/library/aa394582(v=vs.85).aspx "https://msdn.microsoft.com/fr-fr/library/aa394582(v=vs.85).aspx").
